@@ -26,8 +26,9 @@ yarn-error.log*
 # vercel
 .vercel
 
-# claude code local settings (machine-specific permissions)
+# claude code local state (machine-specific)
 .claude/settings.local.json
+.claude/scheduled_tasks.lock
 
 # typescript
 *.tsbuildinfo
