@@ -1,7 +1,20 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
 import { Container } from "./Section";
-import { BUSINESS, NAV_LINKS, TRUST_SIGNALS } from "@/lib/constants";
+import { BUSINESS, SERVICES, TRUST_SIGNALS } from "@/lib/constants";
+
+const COMPANY_LINKS = [
+  { href: "/about", label: "About" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/reviews", label: "Reviews" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/case-studies", label: "Case Studies" },
+  { href: "/blog", label: "Blog" },
+  { href: "/referrals", label: "Tools I Recommend" },
+  { href: "/trusted-partners", label: "Trusted Partners" },
+  { href: "/contact", label: "Contact" },
+  { href: "/book-a-call", label: "Book a Call" },
+];
 
 export function Footer() {
   const year = 2026; // Static build; bump on next deploy or swap for a build-time value.
@@ -9,7 +22,7 @@ export function Footer() {
   return (
     <footer className="bg-navy-900 text-petal-200">
       <Container className="py-16">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
             <Logo variant="light" />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-petal-200/80">
@@ -39,12 +52,12 @@ export function Footer() {
             </div>
           </div>
 
-          <nav aria-label="Footer">
+          <nav aria-label="Services">
             <h2 className="text-xs font-semibold uppercase tracking-[0.16em] text-white/60">
-              Explore
+              Services
             </h2>
             <ul className="mt-4 space-y-2.5 text-sm">
-              {NAV_LINKS.map((link) => (
+              {SERVICES.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -54,11 +67,24 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link href="/book-a-call" className="transition-colors hover:text-coral-400">
-                  Book a Call
-                </Link>
-              </li>
+            </ul>
+          </nav>
+
+          <nav aria-label="Company">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.16em] text-white/60">
+              Explore
+            </h2>
+            <ul className="mt-4 space-y-2.5 text-sm">
+              {COMPANY_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="transition-colors hover:text-coral-400"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
 

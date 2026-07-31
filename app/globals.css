@@ -96,6 +96,54 @@
   }
 }
 
+@layer components {
+  /* Long-form article body. Scoped so blog posts stay readable without
+     pulling in a typography plugin. */
+  .article h2 {
+    @apply mt-12 font-display text-2xl font-semibold text-navy sm:text-3xl;
+  }
+  .article h3 {
+    @apply mt-9 font-display text-xl font-semibold text-navy;
+  }
+  .article p {
+    @apply mt-5 text-lg leading-relaxed text-ink/80;
+  }
+  .article ul,
+  .article ol {
+    @apply mt-5 space-y-3 pl-1;
+  }
+  .article li {
+    @apply relative pl-6 text-lg leading-relaxed text-ink/80;
+  }
+  .article ul > li::before {
+    content: "";
+    @apply absolute left-0 top-[0.7em] h-1.5 w-1.5 rounded-full bg-coral-500;
+  }
+  .article ol {
+    @apply list-none;
+    counter-reset: item;
+  }
+  .article ol > li {
+    counter-increment: item;
+  }
+  .article ol > li::before {
+    content: counter(item) ".";
+    @apply absolute left-0 top-0 font-semibold text-coral-600;
+  }
+  .article a {
+    @apply font-semibold text-coral-600 underline decoration-coral-200 decoration-2 underline-offset-2 transition-colors hover:text-coral-700 hover:decoration-coral-400;
+  }
+  .article strong {
+    @apply font-semibold text-navy;
+  }
+  .article blockquote {
+    @apply mt-8 rounded-2xl border-l-4 border-coral-400 bg-cream py-5 pl-6 pr-6 text-lg italic leading-relaxed text-ink/80;
+  }
+  .article blockquote p {
+    @apply mt-0;
+  }
+}
+
 @layer utilities {
   /* Prose links inside long-form content pages. */
   .prose-links a {

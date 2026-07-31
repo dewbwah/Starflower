@@ -199,21 +199,254 @@ export const FAQS: FaqItem[] = [
   },
 ];
 
-/** Vendor tools Angie recommends (Phase 2 referrals page). */
-export const REFERRAL_TOOLS = [
-  { name: "Gusto", blurb: "Payroll and benefits that just work." },
-  { name: "Google Workspace", blurb: "Email, docs, and calendar for a real business." },
-  { name: "Anchor", blurb: "Autonomous billing so you get paid on time." },
-  { name: "QuickBooks", blurb: "The bookkeeping platform most of my clients run on." },
-  { name: "Xero", blurb: "A clean alternative to QuickBooks I'm certified in." },
-  { name: "Acorn Merchant", blurb: "Card processing without the surprise fees." },
-] as const;
+/**
+ * Software Angie sets clients up on and recommends.
+ * CONFIRM: add her referral/affiliate URL to `href` where she has one. Leave
+ * null and the card renders without a link.
+ */
+export const REFERRAL_TOOLS: {
+  name: string;
+  category: string;
+  blurb: string;
+  href: string | null;
+}[] = [
+  {
+    name: "QuickBooks",
+    category: "Bookkeeping",
+    blurb:
+      "The platform most of my clients run on. I'm a Gold ProAdvisor, so I can usually get you a better rate than you'd find on your own.",
+    href: null,
+  },
+  {
+    name: "Xero",
+    category: "Bookkeeping",
+    blurb:
+      "A clean, easy-to-read alternative to QuickBooks. I'm a Certified Xero Accountant, and some businesses simply get along with it better.",
+    href: null,
+  },
+  {
+    name: "Gusto",
+    category: "Payroll & HR",
+    blurb:
+      "Payroll, benefits, and onboarding in one place. I'm a Gusto Preferred Partner and it's what I put almost every client on.",
+    href: null,
+  },
+  {
+    name: "Google Workspace",
+    category: "Operations",
+    blurb:
+      "Professional email on your own domain, plus docs and calendar. If you're still running the business from a personal address, start here.",
+    href: null,
+  },
+  {
+    name: "Anchor",
+    category: "Billing",
+    blurb:
+      "Autonomous billing that sends invoices and collects payment on its own, so you stop chasing people for money you've already earned.",
+    href: null,
+  },
+  {
+    name: "Acorn Merchant",
+    category: "Payments",
+    blurb:
+      "Card processing with straightforward pricing. Worth a look if your current statement has fees you can't explain.",
+    href: null,
+  },
+];
 
-/** Nav shown in the header and footer (Phase 1 launch set). */
-export const NAV_LINKS = [
-  { href: "/about", label: "About" },
-  { href: "/bookkeeping-for-contractors", label: "For Contractors" },
-  { href: "/cleanup-bookkeeping", label: "Cleanup & Catch-Up" },
+/**
+ * Local businesses Angie refers clients to.
+ *
+ * CONFIRM: these categories are the scaffolding. Angie needs to supply the real
+ * business names, a sentence on each, and a link or phone number. Any category
+ * left with an empty `partners` array is hidden from the page automatically, so
+ * this is safe to ship partially filled.
+ */
+export type PartnerCategory = {
+  category: string;
+  intro: string;
+  partners: { name: string; blurb: string; href: string | null }[];
+};
+
+export const TRUSTED_PARTNERS: PartnerCategory[] = [
+  {
+    category: "CPAs & tax preparation",
+    intro:
+      "I keep your books clean all year. These are the folks I trust to take those books and file the return.",
+    partners: [],
+  },
+  {
+    category: "Attorneys",
+    intro:
+      "For entity setup, contracts, and the questions that need a real lawyer rather than a bookkeeper's opinion.",
+    partners: [],
+  },
+  {
+    category: "Insurance",
+    intro:
+      "General liability, workers comp, and bonding, especially for contractors who need it handled properly.",
+    partners: [],
+  },
+  {
+    category: "Banking & lending",
+    intro:
+      "Bankers who actually pick up the phone and understand how a small business runs.",
+    partners: [],
+  },
+];
+
+/**
+ * Every service page, used by the Services hub, the header dropdown, and the
+ * footer. One entry per page: one page, one job, one target phrase.
+ */
+export type ServiceEntry = {
+  href: string;
+  label: string;
+  /** Short line for the hub page and nav dropdown. */
+  summary: string;
+};
+
+export const SERVICES: ServiceEntry[] = [
+  {
+    href: "/monthly-bookkeeping",
+    label: "Monthly Bookkeeping",
+    summary:
+      "Books categorized, reconciled, and reported every month, with someone actually reading them.",
+  },
+  {
+    href: "/cleanup-bookkeeping",
+    label: "Cleanup & Catch-Up",
+    summary:
+      "Behind or in a muddle? A one-time project to get you accurate, current, and tax-ready.",
+  },
+  {
+    href: "/bookkeeping-for-contractors",
+    label: "Bookkeeping for Contractors",
+    summary:
+      "Job costing, retainage, progress billing, and 1099s handled the way construction actually works.",
+  },
+  {
+    href: "/bookkeeping-for-trades",
+    label: "Bookkeeping for Trades",
+    summary:
+      "HVAC, plumbing, electrical, and field service crews who bill by the job.",
+  },
+  {
+    href: "/virtual-bookkeeping",
+    label: "Virtual Bookkeeping",
+    summary:
+      "Fully remote bookkeeping for businesses anywhere in the country, secure and simple.",
+  },
+  {
+    href: "/cfo-advisory",
+    label: "CFO & Advisory",
+    summary:
+      "Cash flow forecasting, margin analysis, and the guidance that comes after clean books.",
+  },
+  {
+    href: "/payroll",
+    label: "Payroll",
+    summary:
+      "Payroll run on time, filings handled, and contractor 1099s ready before January.",
+  },
+];
+
+/** Primary nav. Items with `children` render as a dropdown in the header. */
+export type NavItem = {
+  href: string;
+  label: string;
+  children?: ServiceEntry[];
+};
+
+export const NAV_LINKS: NavItem[] = [
+  { href: "/services", label: "Services", children: SERVICES },
   { href: "/pricing", label: "Pricing" },
+  { href: "/about", label: "About" },
+  { href: "/reviews", label: "Reviews" },
   { href: "/faq", label: "FAQ" },
+];
+
+/**
+ * Case studies.
+ *
+ * DELIBERATELY EMPTY. These are claims about real client outcomes, so nothing
+ * goes here that didn't actually happen. Angie supplies the real ones and the
+ * page fills itself in; until then the page shows an honest empty state rather
+ * than invented results.
+ *
+ * Shape for each entry:
+ *   {
+ *     slug: "foundation-repair-job-costing",
+ *     client: "Foundation repair contractor",   // anonymized is fine
+ *     industry: "Construction",
+ *     mess: "What shape the books were in when they arrived.",
+ *     work: "What was actually done, step by step.",
+ *     result: "What changed. Real numbers wherever possible.",
+ *     metric: { value: "$18,400", label: "of missed deductions recovered" },
+ *   }
+ */
+export type CaseStudy = {
+  slug: string;
+  client: string;
+  industry: string;
+  mess: string;
+  work: string;
+  result: string;
+  metric?: { value: string; label: string };
+};
+
+export const CASE_STUDIES: CaseStudy[] = [];
+
+/** Blog posts, newest first. Each lives at /blog/<slug>. */
+export type BlogPost = {
+  slug: string;
+  title: string;
+  description: string;
+  /** Display date. Static site, so this is written not computed. */
+  date: string;
+  readingTime: string;
+  category: string;
+};
+
+export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "job-costing-for-contractors",
+    title: "Job Costing for Contractors: How to Know Which Jobs Actually Make Money",
+    description:
+      "A plain-English guide to job costing for construction businesses: what it is, what to track, and why your P&L can look healthy while individual jobs lose money.",
+    date: "July 2026",
+    readingTime: "7 min read",
+    category: "Construction",
+  },
+  {
+    slug: "signs-of-a-bad-bookkeeper",
+    title: "Seven Signs Your Bookkeeper Isn't Serving You Well",
+    description:
+      "How to tell whether your books are in good hands, from late reports and unreconciled accounts to a CPA who keeps asking questions nobody can answer.",
+    date: "June 2026",
+    readingTime: "6 min read",
+    category: "Getting help",
+  },
+  {
+    slug: "quickbooks-mistakes-small-businesses-make",
+    title: "Five QuickBooks Mistakes I Fix Almost Every Week",
+    description:
+      "The most common QuickBooks errors in DIY small business files, why they quietly distort your reports, and how to avoid them.",
+    date: "May 2026",
+    readingTime: "8 min read",
+    category: "QuickBooks",
+  },
+];
+
+/**
+ * Local landing pages. Deliberately capped: a handful of genuinely local pages
+ * beats a pile of near-duplicates.
+ *
+ * CONFIRM: the `community` line on each page is where Angie's real local ties
+ * belong. Generic local pages don't rank and don't convince anyone.
+ */
+export const LOCAL_AREAS = [
+  { slug: "bookkeeper-liberty-mo", city: "Liberty", label: "Liberty, MO" },
+  { slug: "bookkeeper-kansas-city", city: "Kansas City", label: "Kansas City, MO" },
+  { slug: "bookkeeper-north-kansas-city", city: "North Kansas City", label: "North Kansas City" },
 ] as const;

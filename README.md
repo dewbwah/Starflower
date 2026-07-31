@@ -147,13 +147,47 @@ Longer page-specific copy (the contractor and cleanup narratives, pricing tiers,
 | `/book-a-call` | Motion calendar (the conversion page) |
 | `/privacy` | Placeholder privacy policy (linked in footer) |
 
-**Phase 2 (stubbed, `noindex`, not yet in the nav):**
+**Phase 2 (core, live):**
 
-`/services`, `/monthly-bookkeeping`, `/virtual-bookkeeping`, `/cfo-advisory`, `/reviews`, `/contact`, `/referrals`
+| Route | Purpose |
+| --- | --- |
+| `/services` | Hub linking to every service page |
+| `/monthly-bookkeeping` | The core recurring offer |
+| `/virtual-bookkeeping` | Remote/nationwide, handles the trust question |
+| `/cfo-advisory` | Premium tier, justifies the pricing |
+| `/payroll` | **CONFIRM Angie offers this** (see below) |
+| `/reviews` | Houses Google reviews, plus a "leave a review" link slot |
+| `/contact` | Phone, email, service area, GBP map embed slot |
 
-These resolve with a real headline, a paragraph, and the CTA, and are marked "coming soon" in code comments. They're blocked in `robots.ts` and carry `robots: { index: false }` until you build them out. When one is ready: add real content, remove the `noindex`, remove it from the `disallow` list in `app/robots.ts`, add it to `app/sitemap.ts`, and (if it belongs in the nav) add it to `NAV_LINKS`.
+**Phase 3 (growth, live):**
 
-> Note: `/contact` is fully functional already (general-questions form that opens the visitor's mail client). Appointments always go through the Motion embed, never the form.
+| Route | Purpose |
+| --- | --- |
+| `/bookkeeping-for-trades` | HVAC, plumbing, electrical long-tail capture |
+| `/case-studies` | **Intentionally empty** (see below) |
+| `/blog` + 3 posts | Job costing, bad-bookkeeper signs, QuickBooks mistakes |
+| `/referrals` | Software she recommends (Gusto, QuickBooks, Xero, …) |
+| `/trusted-partners` | Local professionals she refers clients to |
+| `/bookkeeper-liberty-mo` | Home base, Clay County |
+| `/bookkeeper-kansas-city` | Wider metro, two-state angle |
+| `/bookkeeper-north-kansas-city` | NKC business district |
+
+> Note: `/contact` is fully functional (general-questions form that opens the visitor's mail client). Appointments always go through the Motion embed, never the form.
+
+### Things deliberately left empty
+
+Two places hold back rather than shipping invented content:
+
+- **`/case-studies`** — `CASE_STUDIES` in `lib/constants.ts` is an empty array, so the page shows an honest "these are being written up" state and is `noindex` + disallowed in robots. The moment you add a real study, the page renders it, the noindex lifts, and it enters the sitemap automatically. The expected shape is documented in a comment above the array. **Don't invent numbers here** — these are claims about real clients.
+- **`/trusted-partners`** — `TRUSTED_PARTNERS` has the categories but no businesses. Any category with an empty `partners` array is hidden, so the page is safe to ship half-filled and improves as Angie names people.
+
+### Payroll page
+
+The original brief listed payroll processing among Angie's services, so `/payroll` is built. If she'd rather not take payroll work directly, delete the entry from `SERVICES` in `lib/constants.ts` and remove the route from `app/sitemap.ts`; it then disappears from the nav, the footer, and the services hub automatically.
+
+### Local pages
+
+Three, deliberately. Each has genuinely different content rather than a swapped city name. Every one has a `CONFIRM` comment marking where Angie's real community ties belong (chamber involvement, sponsorships, how long she's been there). **Generic local pages don't rank and don't convince anyone** — that detail is the whole point of the page. If she has no real tie to North Kansas City, delete that page rather than padding it.
 
 ---
 
@@ -236,6 +270,13 @@ vercel --prod   # promote to production
 - [ ] Paste the Motion embed (`components/MotionEmbed.tsx`) — see above.
 - [ ] Swap the placeholder email (`lib/constants.ts`).
 - [ ] Confirm business hours (`lib/constants.ts`).
-- [ ] Add Angie's photo(s) (`public/images/` + `app/about/page.tsx`).
+- [x] Add Angie's and the team's photos (`public/images/`).
 - [ ] Replace the placeholder privacy policy (`app/privacy/page.tsx`) with reviewed copy.
 - [ ] Configure the `essistantkc.com` 301s (at the old domain).
+- [ ] Confirm Angie offers payroll, or remove `/payroll`.
+- [ ] Paste the Google Business Profile **service-area** map embed (`app/contact/page.tsx`).
+- [ ] Add the Google "write a review" link (`REVIEW_LINK` in `app/reviews/page.tsx`).
+- [ ] Add referral/affiliate URLs for the software (`REFERRAL_TOOLS` in `lib/constants.ts`).
+- [ ] Name the trusted partners (`TRUSTED_PARTNERS` in `lib/constants.ts`).
+- [ ] Add real local detail to the three local pages (marked `CONFIRM` in each).
+- [ ] Decide whether Stella's photo and first name should be on a public, indexed page.
