@@ -13,20 +13,22 @@ export function CTABand({
   sub?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-navy text-white">
+    /* Warm coral band. Deliberately not navy: this sits directly above the
+       navy footer, and two dark blue blocks stacked read as one heavy mass. */
+    <section className="relative overflow-hidden bg-coral-50 text-ink">
       {/* Oversized, very low-opacity petal motif */}
       <FlowerMark
-        tone="light"
-        className="pointer-events-none absolute -right-16 -top-24 h-[28rem] w-[28rem] opacity-[0.06]"
+        tone="coral"
+        className="pointer-events-none absolute -right-16 -top-24 h-[28rem] w-[28rem] opacity-[0.18]"
       />
       <Container className="relative py-16 sm:py-20">
         <Reveal className="mx-auto max-w-prose text-center">
-          <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="font-display text-3xl font-semibold tracking-tight text-navy sm:text-4xl">
             {heading}
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-petal-200">{sub}</p>
+          <p className="mx-auto mt-4 max-w-xl text-lg text-ink/70">{sub}</p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <CTAButton href={CTA.href} size="lg">
+            <CTAButton href={CTA.href} size="lg" variant="secondary">
               {CTA.primaryLabel}
             </CTAButton>
           </div>
