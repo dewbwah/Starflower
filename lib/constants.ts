@@ -50,6 +50,63 @@ export const TRUST_SIGNALS = [
   "Northland Chamber of Commerce 2017 Leadership Class",
 ] as const;
 
+/**
+ * Angie's headshot for the About page.
+ *
+ * TO ADD IT: save the photo as /public/images/angie.jpg, then change this to
+ * "/images/angie.jpg". While it's null, the marked placeholder block shows
+ * instead, so the page never renders a broken image.
+ */
+export const ANGIE_PHOTO: string | null = null;
+
+/**
+ * Angie's family, featured on the About page.
+ *
+ * CONFIRM: names and roles below are placeholders. Swap in the real first names
+ * and, if the daughters have a role in the business, describe it in `role`.
+ * If they aren't involved in Starflower, leave `role` as an empty string and
+ * only the name and blurb will show.
+ *
+ * PHOTOS: drop each image in /public/images/ and set `photo` to its path
+ * (e.g. "/images/family-daughter-one.jpg"). Leave `photo` as null to keep the
+ * marked placeholder block showing until the real photo is ready.
+ */
+export type FamilyMember = {
+  name: string;
+  role: string;
+  blurb: string;
+  photo: string | null;
+  alt: string;
+};
+
+export const FAMILY: FamilyMember[] = [
+  {
+    name: "Katie",
+    role: "Bookkeeper & Office Manager",
+    blurb:
+      "My daughter Katie works with me full time, keeping client books current and the day to day running smoothly. When you reach out, there's a good chance she's the one who gets you sorted.",
+    photo: null, // → "/images/katie.jpg"
+    alt: "Katie, bookkeeper and office manager at Starflower Bookkeeping",
+  },
+  {
+    name: "Riley",
+    role: "Bookkeeper",
+    blurb:
+      "My daughter Riley works with us part time on the books. Between the three of us, someone who knows your account is always close by.",
+    photo: null, // → "/images/riley.jpg"
+    alt: "Riley, part-time bookkeeper at Starflower Bookkeeping",
+  },
+  {
+    // CONFIRM: granddaughter's first name.
+    name: "CONFIRM: granddaughter",
+    role: "Bookkeeper in Training & Part Owner",
+    blurb:
+      "My granddaughter is a part owner and my bookkeeper in training. She's already asking sharper questions about the numbers than plenty of grown adults I've met.",
+    photo: null, // → "/images/<name>.jpg"
+    alt: "Angie's granddaughter, bookkeeper in training and part owner of Starflower Bookkeeping",
+  },
+];
+
 export type Testimonial = {
   name: string;
   quote: string;

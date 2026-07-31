@@ -108,7 +108,7 @@ export default function HomePage() {
           {/* Visual: a stylized report card, petal-framed, echoing the logo */}
           <Reveal delay={160} className="relative">
             <div className="relative mx-auto max-w-md">
-              <div className="rounded-[8%_36%_8%_36%] bg-navy p-8 shadow-lift sm:p-10">
+              <div className="leaf bg-navy p-9 shadow-lift sm:p-11">
                 <div className="flex items-center justify-between">
                   <FlowerMark tone="light" className="h-9 w-9" />
                   <span className="text-xs font-semibold uppercase tracking-[0.16em] text-petal-200">
@@ -233,7 +233,7 @@ export default function HomePage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <Reveal>
-              <div className="relative overflow-hidden rounded-[8%_40%_8%_40%] bg-navy p-10 text-white sm:p-12">
+              <div className="leaf relative overflow-hidden bg-navy p-10 text-white sm:p-14">
                 <FlowerMark
                   tone="light"
                   className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 opacity-[0.07]"

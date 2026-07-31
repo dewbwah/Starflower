@@ -61,9 +61,7 @@ export function PetalFrame({
   /** Mirror the leaf orientation. */
   flip?: boolean;
 }) {
-  const shape = flip
-    ? "rounded-[60%_8%_60%_8%]"
-    : "rounded-[8%_60%_8%_60%]";
+  const shape = flip ? "leaf-media-flip" : "leaf-media";
   return (
     <div className={`relative overflow-hidden ${shape} ${className}`}>
       {children}

@@ -54,6 +54,48 @@
   }
 }
 
+@layer components {
+  /*
+   * Leaf-shaped containers, the recurring brand device tying back to the logo.
+   *
+   * These use FIXED radii rather than percentages on purpose. A percentage
+   * border-radius resolves per axis (36% of width horizontally, 36% of *height*
+   * vertically), so on a tall card it balloons into a huge ellipse that crowds
+   * the copy against the curve. Fixed values keep the leaf looking identical no
+   * matter how tall the box grows.
+   *
+   * Use .leaf for containers holding text, and .leaf-media for image frames,
+   * which can take a much deeper sweep since there's no copy to crowd.
+   */
+  .leaf {
+    border-radius: 1.25rem 4.5rem 1.25rem 4.5rem;
+  }
+  .leaf-flip {
+    border-radius: 4.5rem 1.25rem 4.5rem 1.25rem;
+  }
+  .leaf-media {
+    border-radius: 1.5rem 7rem 1.5rem 7rem;
+  }
+  .leaf-media-flip {
+    border-radius: 7rem 1.5rem 7rem 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .leaf {
+      border-radius: 1.5rem 6rem 1.5rem 6rem;
+    }
+    .leaf-flip {
+      border-radius: 6rem 1.5rem 6rem 1.5rem;
+    }
+    .leaf-media {
+      border-radius: 2rem 10rem 2rem 10rem;
+    }
+    .leaf-media-flip {
+      border-radius: 10rem 2rem 10rem 2rem;
+    }
+  }
+}
+
 @layer utilities {
   /* Prose links inside long-form content pages. */
   .prose-links a {

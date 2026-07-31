@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container, Section } from "@/components/Section";
 import { PageHero } from "@/components/PageHero";
 import { CTAButton } from "@/components/CTAButton";
@@ -7,7 +8,7 @@ import { CredentialsStrip } from "@/components/CredentialsStrip";
 import { Reveal } from "@/components/Reveal";
 import { Eyebrow, PetalFrame, PhotoPlaceholder } from "@/components/ui";
 import { FlowerMark } from "@/components/FlowerMark";
-import { CTA, BUSINESS } from "@/lib/constants";
+import { CTA, BUSINESS, FAMILY, ANGIE_PHOTO } from "@/lib/constants";
 import { HandshakeIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
@@ -50,12 +51,23 @@ export default function AboutPage() {
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
             <Reveal className="lg:sticky lg:top-24">
               <PetalFrame className="mx-auto max-w-sm shadow-lift">
-                {/* PHOTO: drop Angie's headshot at /public/images/angie.jpg and
-                    replace this placeholder with a next/image (see README). */}
-                <PhotoPlaceholder
-                  label="Photo of Angie goes here (petal-masked)"
-                  className="aspect-[4/5] w-full"
-                />
+                {/* PHOTO: save the headshot at /public/images/angie.jpg, then set
+                    ANGIE_PHOTO in lib/constants.ts to "/images/angie.jpg". */}
+                {ANGIE_PHOTO ? (
+                  <Image
+                    src={ANGIE_PHOTO}
+                    alt="Angie, founder of Starflower Bookkeeping"
+                    width={640}
+                    height={800}
+                    className="aspect-[4/5] w-full object-cover"
+                    priority
+                  />
+                ) : (
+                  <PhotoPlaceholder
+                    label="Photo of Angie goes here (petal-masked)"
+                    className="aspect-[4/5] w-full"
+                  />
+                )}
               </PetalFrame>
               <p className="mt-4 text-center text-sm text-ink/55">
                 {BUSINESS.founderName}, founder of Starflower Bookkeeping
@@ -116,6 +128,66 @@ export default function AboutPage() {
                 </div>
               </div>
             </Reveal>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Family */}
+      <Section tone="petal">
+        <Container>
+          <Reveal className="mx-auto max-w-prose text-center">
+            <Eyebrow className="mb-3">The team</Eyebrow>
+            <h2 className="font-display text-3xl font-semibold tracking-tight text-navy sm:text-4xl">
+              Starflower is a family business, literally
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-ink/75">
+              I named this business for something that grows, and that wasn&apos;t an
+              accident. My daughters and my granddaughter are why I built something of
+              my own, and the next generation is already learning the books.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {FAMILY.map((person, i) => (
+              <Reveal key={person.name} delay={i * 80}>
+                <figure className="flex h-full flex-col items-center text-center">
+                  <PetalFrame
+                    flip={i % 2 === 1}
+                    className="w-full max-w-[15rem] shadow-lift"
+                  >
+                    {/* PHOTO: set `photo` in lib/constants.ts to swap this
+                        placeholder for the real image. */}
+                    {person.photo ? (
+                      <Image
+                        src={person.photo}
+                        alt={person.alt}
+                        width={480}
+                        height={600}
+                        className="aspect-[4/5] w-full object-cover"
+                      />
+                    ) : (
+                      <PhotoPlaceholder
+                        label="Photo goes here"
+                        className="aspect-[4/5] w-full"
+                      />
+                    )}
+                  </PetalFrame>
+                  <figcaption className="mt-6">
+                    <p className="font-display text-xl font-semibold text-navy">
+                      {person.name}
+                    </p>
+                    {person.role ? (
+                      <p className="mt-1.5 inline-flex rounded-full bg-coral-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-coral-600">
+                        {person.role}
+                      </p>
+                    ) : null}
+                    <p className="mt-3 text-[0.95rem] leading-relaxed text-ink/75">
+                      {person.blurb}
+                    </p>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
           </div>
         </Container>
       </Section>
