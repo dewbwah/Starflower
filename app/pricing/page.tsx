@@ -157,16 +157,15 @@ export default function PricingPage() {
               <div className="mt-5 space-y-4 text-lg leading-relaxed text-ink/80">
                 <p>
                   There&apos;s always someone offering to keep your books for $75 a
-                  month. Here&apos;s the honest truth: that price usually costs you more
-                  in the end. You&apos;ll pay someone like me later to clean up the mess,
-                  and in the meantime you may overpay on taxes because deductions got
-                  missed and reports were wrong.
+                  month, and I understand the appeal. Here&apos;s the honest truth
+                  though: that price often costs more in the end. Cleanup work later
+                  isn&apos;t cheap, and in the meantime you may overpay on taxes because
+                  deductions got missed.
                 </p>
                 <p>
-                  My pricing reflects CFO-level oversight, not just data entry. You&apos;re
-                  not paying for someone to record the past. You&apos;re paying for
-                  someone who tells you what the numbers mean and catches problems before
-                  they cost you.
+                  What you&apos;re paying me for is the oversight around the numbers,
+                  not just the data entry. I&apos;ll tell you what your reports mean and
+                  give you a heads up when something needs attention.
                 </p>
               </div>
             </Reveal>

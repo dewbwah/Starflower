@@ -51,25 +51,15 @@ export const TRUST_SIGNALS = [
 ] as const;
 
 /**
- * Angie's headshot for the About page.
- *
- * TO ADD IT: save the photo as /public/images/angie.jpg, then change this to
- * "/images/angie.jpg". While it's null, the marked placeholder block shows
- * instead, so the page never renders a broken image.
+ * Angie's headshot for the About page. Lives in /public/images/.
+ * Set to null to fall back to a marked placeholder instead of a broken image.
  */
-export const ANGIE_PHOTO: string | null = null;
+export const ANGIE_PHOTO: string | null = "/images/angie.jpg";
 
 /**
- * Angie's family, featured on the About page.
- *
- * CONFIRM: names and roles below are placeholders. Swap in the real first names
- * and, if the daughters have a role in the business, describe it in `role`.
- * If they aren't involved in Starflower, leave `role` as an empty string and
- * only the name and blurb will show.
- *
- * PHOTOS: drop each image in /public/images/ and set `photo` to its path
- * (e.g. "/images/family-daughter-one.jpg"). Leave `photo` as null to keep the
- * marked placeholder block showing until the real photo is ready.
+ * Angie's family, who make up the Starflower team, featured on the About page.
+ * Photos live in /public/images/. Set `photo` to null to show a marked
+ * placeholder instead of a broken image.
  */
 export type FamilyMember = {
   name: string;
@@ -77,6 +67,16 @@ export type FamilyMember = {
   blurb: string;
   photo: string | null;
   alt: string;
+  /**
+   * CSS object-position for the portrait crop. Full-body shots need the focus
+   * pulled toward the top so the face isn't cropped out of the 4:5 frame.
+   */
+  focal?: string;
+  /**
+   * Optional scale for wide environmental shots, so everyone reads at a similar
+   * size in the row. Non-destructive: the source image is untouched.
+   */
+  zoom?: number;
 };
 
 export const FAMILY: FamilyMember[] = [
@@ -85,7 +85,7 @@ export const FAMILY: FamilyMember[] = [
     role: "Bookkeeper & Office Manager",
     blurb:
       "My daughter Katie works with me full time, keeping client books current and the day to day running smoothly. When you reach out, there's a good chance she's the one who gets you sorted.",
-    photo: null, // → "/images/katie.jpg"
+    photo: "/images/katie.webp",
     alt: "Katie, bookkeeper and office manager at Starflower Bookkeeping",
   },
   {
@@ -93,17 +93,19 @@ export const FAMILY: FamilyMember[] = [
     role: "Bookkeeper",
     blurb:
       "My daughter Riley works with us part time on the books. Between the three of us, someone who knows your account is always close by.",
-    photo: null, // → "/images/riley.jpg"
+    photo: "/images/riley.webp",
     alt: "Riley, part-time bookkeeper at Starflower Bookkeeping",
   },
   {
-    // CONFIRM: granddaughter's first name.
-    name: "CONFIRM: granddaughter",
+    name: "Stella",
     role: "Bookkeeper in Training & Part Owner",
     blurb:
-      "My granddaughter is a part owner and my bookkeeper in training. She's already asking sharper questions about the numbers than plenty of grown adults I've met.",
-    photo: null, // → "/images/<name>.jpg"
-    alt: "Angie's granddaughter, bookkeeper in training and part owner of Starflower Bookkeeping",
+      "My granddaughter Stella is a part owner and my bookkeeper in training. She's curious about how businesses work and loves learning the why behind the numbers, which is the best place any bookkeeper can start.",
+    photo: "/images/stella.webp",
+    alt: "Stella, bookkeeper in training and part owner of Starflower Bookkeeping",
+    // Full-body shot: pull the crop up so her face sits in frame.
+    focal: "50% 30%",
+    zoom: 1.5,
   },
 ];
 

@@ -112,11 +112,11 @@ export default function ContractorsPage() {
                 </h3>
                 <ul className="mt-5 space-y-3">
                   {[
-                    "You can't say which of last year's jobs were your best and worst.",
-                    "Retainage and draws are tracked in your head or a napkin.",
-                    "1099 season is a fire drill every January.",
-                    "Your bonding company or lender doesn't fully trust your numbers.",
-                    "You bid the next job on a feeling, not on real cost history.",
+                    "It's hard to say which of last year's jobs were your best and worst.",
+                    "Retainage and draws live mostly in your head.",
+                    "1099 season turns into a scramble every January.",
+                    "Your bonding company or lender asks questions you can't easily answer.",
+                    "You bid the next job on instinct, because the cost history isn't there.",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-ink/80">
                       <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-coral-500" />
@@ -177,7 +177,7 @@ export default function ContractorsPage() {
                   Why me
                 </Eyebrow>
                 <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-                  This is home turf, not a niche I picked up last year
+                  Construction is home turf for me
                 </h2>
                 <p className="mt-5 text-lg leading-relaxed text-petal-100">
                   I&apos;m the CFO of a multi-million dollar foundation repair company.
@@ -220,7 +220,7 @@ export default function ContractorsPage() {
 
       <Testimonials />
 
-      <CTABand heading="Bring me one messy job and let's cost it out" />
+      <CTABand heading="Bring me one job and let's cost it out together" />
     </>
   );
 }

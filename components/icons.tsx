@@ -86,10 +86,22 @@ export function ReceiptIcon({ className = wrap }: IconProps) {
   );
 }
 
-export function HandshakeIcon({ className = wrap }: IconProps) {
+/** Quotation mark, for pull quotes. */
+export function QuoteIcon({ className = wrap }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true" fill="currentColor">
+      <path d="M9.5 5.5C6.6 6.9 4.8 9.6 4.8 12.9v5.6h6.4v-6.4H7.9c0-2 .9-3.5 2.7-4.4l-1.1-2.2zm10 0c-2.9 1.4-4.7 4.1-4.7 7.4v5.6h6.4v-6.4h-3.3c0-2 .9-3.5 2.7-4.4l-1.1-2.2z" />
+    </svg>
+  );
+}
+
+/** Two people, for the "someone you can call" / office manager idea. */
+export function PeopleIcon({ className = wrap }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path d="M8 12l3 3 2-2 3 3M2 10l4-4 5 4M22 10l-4-4-3 2M6 6v7m12-7v7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="9" cy="8" r="3.2" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M3.5 19.5c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M16.5 5.4a3.2 3.2 0 010 5.2M18.5 14.9c2 .6 3.5 2.3 3.5 4.6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
     </svg>
   );
 }

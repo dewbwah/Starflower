@@ -22,7 +22,7 @@ export function Testimonials() {
         <Reveal className="mx-auto max-w-prose text-center">
           <Eyebrow className="mb-3">In their words</Eyebrow>
           <h2 className="font-display text-3xl font-semibold tracking-tight text-navy sm:text-4xl">
-            Clients don&apos;t just keep me, they refer me
+            Kind words from people I get to work with
           </h2>
           <p className="mt-4 text-lg text-ink/70">
             Real reviews from business owners I work with every month.

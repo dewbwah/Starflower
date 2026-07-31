@@ -209,7 +209,7 @@ export default function CleanupPage() {
         </Container>
       </Section>
 
-      <CTABand heading="Show me the mess. I've seen worse." />
+      <CTABand heading="However far behind you are, we can sort it out" />
     </>
   );
 }

@@ -9,7 +9,7 @@ import { Reveal } from "@/components/Reveal";
 import { Eyebrow, PetalFrame, PhotoPlaceholder } from "@/components/ui";
 import { FlowerMark } from "@/components/FlowerMark";
 import { CTA, BUSINESS, FAMILY, ANGIE_PHOTO } from "@/lib/constants";
-import { HandshakeIcon } from "@/components/icons";
+import { PeopleIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "About Angie",
@@ -27,8 +27,8 @@ export default function AboutPage() {
         eyebrow="About"
         title={
           <>
-            I&apos;m the CFO who decided small businesses deserve the same financial
-            oversight.
+            Every small business deserves the same financial insight the big ones
+            get.
           </>
         }
         intro={
@@ -60,6 +60,7 @@ export default function AboutPage() {
                     width={640}
                     height={800}
                     className="aspect-[4/5] w-full object-cover"
+                    style={{ objectPosition: "50% 20%" }}
                     priority
                   />
                 ) : (
@@ -93,11 +94,11 @@ export default function AboutPage() {
                   it lands on you.
                 </p>
                 <p>
-                  Along the way I kept meeting business owners who were flying blind.
-                  Good, hardworking contractors and small business owners paying a cheap
-                  bookkeeper to record the past, with no one helping them read it. Some
-                  had books so tangled they were making decisions on numbers that
-                  were flat-out wrong.
+                  Along the way I kept meeting hardworking contractors and small
+                  business owners who had someone recording their numbers, but nobody
+                  helping them understand what those numbers meant. They deserved better
+                  information than they were getting, and most had simply never been
+                  shown what good bookkeeping can do for a business.
                 </p>
                 <p>
                   So I started Starflower Bookkeeping. Same financial oversight I bring
@@ -111,7 +112,7 @@ export default function AboutPage() {
               <div className="not-prose mt-10 rounded-2xl border border-petal-200 bg-petal-50 p-7">
                 <div className="flex items-start gap-4">
                   <span className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy text-petal-100">
-                    <HandshakeIcon />
+                    <PeopleIcon />
                   </span>
                   <div>
                     <h2 className="font-display text-xl font-semibold text-navy">
@@ -164,6 +165,10 @@ export default function AboutPage() {
                         width={480}
                         height={600}
                         className="aspect-[4/5] w-full object-cover"
+                        style={{
+                          objectPosition: person.focal ?? "50% 25%",
+                          transform: person.zoom ? `scale(${person.zoom})` : undefined,
+                        }}
                       />
                     ) : (
                       <PhotoPlaceholder
@@ -200,16 +205,16 @@ export default function AboutPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {[
               {
-                title: "Straight talk",
-                body: "I tell you what the numbers mean in plain English, including the parts you might not want to hear.",
+                title: "Plain English",
+                body: "I explain what your numbers mean without the jargon, and I'm always happy to answer the question you think you should already know.",
               },
               {
-                title: "Real oversight",
-                body: "I flag problems before they grow instead of just recording them after they hurt.",
+                title: "A step ahead",
+                body: "I keep an eye out for problems early, so we can talk about them while they're still small and easy to solve.",
               },
               {
                 title: "In your corner",
-                body: "I work alongside your CPA and act as a partner in the business, not a data-entry service.",
+                body: "I work alongside your CPA and think of myself as part of your team, not an outside data-entry service.",
               },
             ].map((v, i) => (
               <Reveal key={v.title} delay={i * 80}>

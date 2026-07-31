@@ -13,7 +13,7 @@ import {
   ChartIcon,
   HardHatIcon,
   BroomIcon,
-  HandshakeIcon,
+  QuoteIcon,
   ReceiptIcon,
   ScaleIcon,
 } from "@/components/icons";
@@ -238,7 +238,7 @@ export default function HomePage() {
                   tone="light"
                   className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 opacity-[0.07]"
                 />
-                <HandshakeIcon className="h-10 w-10 text-petal-200" />
+                <QuoteIcon className="h-10 w-10 text-petal-200" />
                 <p className="mt-6 font-display text-2xl font-medium leading-snug sm:text-3xl">
                   &ldquo;I don&apos;t just keep your books clean. I tell you where
                   you&apos;re leaking money, which jobs are actually profitable, and
@@ -250,19 +250,20 @@ export default function HomePage() {
               </div>
             </Reveal>
             <Reveal delay={100}>
-              <Eyebrow className="mb-3">The $75/month trap</Eyebrow>
+              <Eyebrow className="mb-3">Worth knowing</Eyebrow>
               <h2 className="font-display text-3xl font-semibold tracking-tight text-navy sm:text-4xl">
-                Cheap bookkeeping is the most expensive kind
+                Why the cheapest option often costs more
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-ink/75">
-                I spend a lot of my time cleaning up messes left by $75-a-month
-                bookkeepers. The low price feels good until tax time, when the books
-                are wrong, the deductions are missed, and you&apos;re paying someone
-                like me to rebuild it all anyway.
+                A lot of my work starts with books that were kept on the cheap. That
+                low monthly rate feels great right up until tax time, when the numbers
+                don&apos;t hold up and the deductions were missed. It&apos;s a really
+                easy thing to get caught by, and it&apos;s nobody&apos;s fault for
+                trying to keep costs down.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-ink/75">
-                Bring me your books and your suspicion that something&apos;s off.
-                Fifteen minutes tells you a lot.
+                If something feels off, bring me your books and your questions.
+                Fifteen minutes usually tells us both a lot.
               </p>
               <div className="mt-8">
                 <CTAButton href={CTA.href} size="lg">
