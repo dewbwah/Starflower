@@ -104,14 +104,31 @@ export function Footer() {
           <p>
             &copy; {year} {BUSINESS.name}. All rights reserved.
           </p>
-          <div className="flex items-center gap-5">
+          <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <Link href="/privacy" className="transition-colors hover:text-coral-400">
               Privacy Policy
             </Link>
-            <span className="text-petal-200/40">
-              Serving contractors &amp; small businesses nationwide
-            </span>
-          </div>
+            <Link href="/terms" className="transition-colors hover:text-coral-400">
+              Terms of Service
+            </Link>
+            <Link
+              href="/cookie-settings"
+              className="transition-colors hover:text-coral-400"
+            >
+              Cookie Settings
+            </Link>
+          </nav>
+          <p>
+            Website by{" "}
+            <a
+              href="https://dewbwahmarketing.com"
+              target="_blank"
+              rel="noopener"
+              className="font-medium text-petal-200/90 transition-colors hover:text-coral-400"
+            >
+              DewBwah
+            </a>
+          </p>
         </div>
       </Container>
     </footer>

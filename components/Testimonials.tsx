@@ -15,9 +15,16 @@ function Stars() {
   );
 }
 
-export function Testimonials() {
+export function Testimonials({
+  tone = "white",
+}: {
+  tone?: "white" | "cream" | "petal";
+}) {
+  // Cards sit on cream by default; on a cream or petal band they flip to white
+  // so they still read as cards.
+  const cardBg = tone === "white" ? "bg-cream" : "bg-white";
   return (
-    <Section tone="white">
+    <Section tone={tone}>
       <Container>
         <Reveal className="mx-auto max-w-prose text-center">
           <Eyebrow className="mb-3">In their words</Eyebrow>
@@ -32,7 +39,7 @@ export function Testimonials() {
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {TESTIMONIALS.map((t, i) => (
             <Reveal key={t.name} delay={i * 80}>
-              <figure className="flex h-full flex-col rounded-2xl border border-petal-100 bg-cream p-7 shadow-soft">
+              <figure className={`flex h-full flex-col rounded-2xl border border-petal-100 ${cardBg} p-7 shadow-soft`}>
                 <Stars />
                 <blockquote className="mt-4 flex-1 text-[0.975rem] leading-relaxed text-ink/85">
                   &ldquo;{t.quote}&rdquo;

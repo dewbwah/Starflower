@@ -43,9 +43,13 @@ export function Header() {
     pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
 
   return (
-    <header className="sticky top-0 z-50 border-b border-petal-100 bg-cream/85 backdrop-blur supports-[backdrop-filter]:bg-cream/70">
-      <Container className="flex h-16 items-center justify-between gap-4">
-        <Logo />
+    // Floating glass bar: translucent navy over a blur, inset from the page top,
+    // so content slides underneath it as you scroll.
+    <header className="pointer-events-none sticky top-0 z-50">
+      <Container className="pointer-events-auto">
+        <div className="mt-3 rounded-2xl border border-white/15 bg-navy/80 shadow-lift backdrop-blur-md supports-[backdrop-filter]:bg-navy/70">
+          <div className="flex h-14 items-center justify-between gap-4 px-4 sm:px-5">
+            <Logo variant="light" />
 
         <nav
           ref={navRef}
@@ -61,8 +65,10 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   aria-current={active ? "page" : undefined}
-                  className={`rounded-full px-3.5 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral-500 ${
-                    active ? "text-coral-600" : "text-ink/80 hover:text-navy"
+                  className={`rounded-full px-3.5 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 ${
+                    active
+                      ? "text-coral-400"
+                      : "text-petal-100/85 hover:bg-white/10 hover:text-white"
                   }`}
                 >
                   {link.label}
@@ -81,10 +87,10 @@ export function Header() {
                   aria-expanded={expanded}
                   aria-haspopup="true"
                   onClick={() => setMenu(expanded ? null : link.href)}
-                  className={`inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral-500 ${
+                  className={`inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 ${
                     active || childActive
-                      ? "text-coral-600"
-                      : "text-ink/80 hover:text-navy"
+                      ? "text-coral-400"
+                      : "text-petal-100/85 hover:bg-white/10 hover:text-white"
                   }`}
                 >
                   {link.label}
@@ -107,33 +113,33 @@ export function Header() {
                 </button>
 
                 {expanded ? (
-                  <div className="absolute left-1/2 top-full z-50 mt-2 w-[26rem] -translate-x-1/2 rounded-2xl border border-petal-100 bg-white p-2 shadow-lift">
+                  <div className="absolute left-1/2 top-full z-50 mt-3 w-[26rem] -translate-x-1/2 rounded-2xl border border-white/15 bg-navy/90 p-2 shadow-lift backdrop-blur-md">
                     <Link
                       href={link.href}
-                      className="block rounded-xl px-4 py-3 transition-colors hover:bg-petal-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral-500"
+                      className="block rounded-xl px-4 py-3 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral-400"
                     >
-                      <span className="text-sm font-semibold text-navy">
+                      <span className="text-sm font-semibold text-white">
                         All services
                       </span>
-                      <span className="mt-0.5 block text-xs text-ink/60">
+                      <span className="mt-0.5 block text-xs text-petal-200/75">
                         See everything in one place
                       </span>
                     </Link>
-                    <div className="my-1 h-px bg-petal-100" />
+                    <div className="my-1 h-px bg-white/10" />
                     {link.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block rounded-xl px-4 py-3 transition-colors hover:bg-petal-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral-500"
+                        className="block rounded-xl px-4 py-3 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral-400"
                       >
                         <span
                           className={`text-sm font-semibold ${
-                            isActive(child.href) ? "text-coral-600" : "text-navy"
+                            isActive(child.href) ? "text-coral-400" : "text-white"
                           }`}
                         >
                           {child.label}
                         </span>
-                        <span className="mt-0.5 block text-xs leading-relaxed text-ink/60">
+                        <span className="mt-0.5 block text-xs leading-relaxed text-petal-200/75">
                           {child.summary}
                         </span>
                       </Link>
@@ -153,7 +159,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-navy transition-colors hover:bg-petal-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral-500 lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -176,45 +182,47 @@ export function Header() {
               />
             </span>
           </button>
+            </div>
+          </div>
+
+          {/* Mobile menu, expanding inside the same glass card */}
+          <div
+            id="mobile-menu"
+            className={`max-h-[calc(100vh-6rem)] overflow-y-auto border-t border-white/10 lg:hidden ${
+              open ? "block" : "hidden"
+            }`}
+          >
+            <div className="flex flex-col gap-1 px-3 py-4">
+              {NAV_LINKS.map((link) => (
+                <div key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="block rounded-xl px-3 py-3 text-base font-medium text-petal-100 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral-400"
+                  >
+                    {link.label}
+                  </Link>
+                  {link.children ? (
+                    <div className="mb-1 ml-3 border-l border-white/15 pl-3">
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block rounded-xl px-3 py-2.5 text-sm text-petal-200/85 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral-400"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
+              ))}
+              <CTAButton href={CTA.href} size="lg" className="mt-3">
+                {CTA.headerLabel}
+              </CTAButton>
+            </div>
+          </div>
         </div>
       </Container>
-
-      {/* Mobile menu */}
-      <div
-        id="mobile-menu"
-        className={`max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-petal-100 bg-cream lg:hidden ${
-          open ? "block" : "hidden"
-        }`}
-      >
-        <Container className="flex flex-col gap-1 py-4">
-          {NAV_LINKS.map((link) => (
-            <div key={link.href}>
-              <Link
-                href={link.href}
-                className="block rounded-xl px-3 py-3 text-base font-medium text-ink/90 transition-colors hover:bg-petal-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral-500"
-              >
-                {link.label}
-              </Link>
-              {link.children ? (
-                <div className="mb-1 ml-3 border-l border-petal-200 pl-3">
-                  {link.children.map((child) => (
-                    <Link
-                      key={child.href}
-                      href={child.href}
-                      className="block rounded-xl px-3 py-2.5 text-sm text-ink/75 transition-colors hover:bg-petal-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral-500"
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
-              ) : null}
-            </div>
-          ))}
-          <CTAButton href={CTA.href} size="lg" className="mt-3">
-            {CTA.headerLabel}
-          </CTAButton>
-        </Container>
-      </div>
     </header>
   );
 }
