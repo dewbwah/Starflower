@@ -180,7 +180,7 @@ export default function ContractorsPage() {
                   Construction is home turf for me
                 </h2>
                 <p className="mt-5 text-lg leading-relaxed text-petal-100">
-                  I&apos;m the CFO of a multi-million dollar foundation repair company.
+                  I&apos;m the CFO of a 7-figure construction company.
                   I&apos;ve spent years inside construction finance, doing exactly this
                   work at scale: costing jobs, managing draws and retainage, keeping the
                   books lenders and bonding companies rely on. When I set up your job
