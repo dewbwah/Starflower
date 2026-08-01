@@ -141,7 +141,7 @@ export default function TradesPage() {
             title="I already speak the language of the field"
           >
             <p>
-              I&apos;m the CFO of a multi-million dollar foundation repair company, so
+              I&apos;m the CFO of a 7-figure construction company, so
               crews, trucks, materials, and job-by-job margin are what I deal with every
               week. The vocabulary of your business is already mine, which means we can
               skip the part where you explain what a callback costs you.
