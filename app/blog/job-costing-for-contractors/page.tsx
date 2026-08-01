@@ -124,7 +124,7 @@ export default function Post() {
       <p>
         This is the core of what I do on the{" "}
         <Link href="/bookkeeping-for-contractors">contractor side of my practice</Link>,
-        and it&apos;s the same work I do as CFO of a foundation repair company. If your
+        and it&apos;s the same work I do as CFO of a 7-figure construction company. If your
         books can&apos;t tell you which jobs pay,{" "}
         <Link href="/book-a-call">bring me one job</Link> and we&apos;ll cost it out
         together.
