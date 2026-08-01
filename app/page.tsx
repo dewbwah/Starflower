@@ -90,18 +90,14 @@ export default function HomePage() {
               </p>
             </Rise>
             <Rise delay={180}>
-              <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <CTAButton href={CTA.href} size="lg">
+              <div className="mt-9 flex flex-col items-start gap-3">
+                <CTAButton href={CTA.href} size="lg" className="whitespace-nowrap">
                   {CTA.primaryLabel}
                 </CTAButton>
-                <p className="text-sm text-ink/60">{CTA.supportShort}</p>
+                <p className="whitespace-nowrap text-sm text-ink/60">
+                  {CTA.supportShort}
+                </p>
               </div>
-            </Rise>
-            <Rise delay={240}>
-              <p className="mt-8 text-sm text-ink/60">
-                Based in {BUSINESS.baseCity}, {BUSINESS.baseState}. Working with clients
-                everywhere, fully remote.
-              </p>
             </Rise>
           </div>
 
@@ -187,6 +183,9 @@ export default function HomePage() {
           </div>
         </Container>
       </Section>
+
+      {/* ---------------- REVIEWS (early, so visitors hit proof fast) ---------------- */}
+      <Testimonials tone="cream" />
 
       {/* ---------------- WHO I HELP ---------------- */}
       <Section tone="petal">
@@ -274,8 +273,6 @@ export default function HomePage() {
           </div>
         </Container>
       </Section>
-
-      <Testimonials />
 
       {/* ---------------- QUICK LINKS ---------------- */}
       <Section tone="petal">

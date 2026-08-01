@@ -40,6 +40,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Legal
     { path: "/privacy", priority: 0.2, changeFrequency: "yearly" },
+    { path: "/terms", priority: 0.2, changeFrequency: "yearly" },
+    { path: "/cookie-settings", priority: 0.2, changeFrequency: "yearly" },
   ];
 
   // Blog posts.
