@@ -362,6 +362,7 @@ export const NAV_LINKS: NavItem[] = [
   { href: "/pricing", label: "Pricing" },
   { href: "/about", label: "About" },
   { href: "/reviews", label: "Reviews" },
+  { href: "/blog", label: "Blog" },
   { href: "/faq", label: "FAQ" },
 ];
 
@@ -408,6 +409,63 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "how-much-does-bookkeeping-cost",
+    title:
+      "How Much Does Bookkeeping Cost? (And Why the Cheap Bookkeeper Is Usually the Expensive One)",
+    description:
+      "What small business bookkeeping really costs, what drives the price, and why the $75-a-month bookkeeper is usually the most expensive option.",
+    date: "August 2026",
+    readingTime: "10 min read",
+    category: "Pricing",
+  },
+  {
+    slug: "monthly-bookkeeping-checklist-small-business",
+    title: "The Monthly Bookkeeping Checklist Every Small Business Owner Needs",
+    description:
+      "A step-by-step monthly bookkeeping checklist for small business owners: what to reconcile, review, and record so your books stay accurate.",
+    date: "August 2026",
+    readingTime: "9 min read",
+    category: "Bookkeeping",
+  },
+  {
+    slug: "progress-billing-retainage-wip-explained",
+    title:
+      "Progress Billing, Retainage, and WIP: The Construction Money Concepts Nobody Explains",
+    description:
+      "Progress billing, retainage, and WIP reports confuse most contractors. Here's what each one means and how to handle them in your books.",
+    date: "August 2026",
+    readingTime: "9 min read",
+    category: "Construction",
+  },
+  {
+    slug: "behind-on-bookkeeping-catch-up-guide",
+    title: "Behind on Your Bookkeeping? Here's Exactly How to Catch Up",
+    description:
+      "Months or years behind on your books? Here's exactly how catch-up bookkeeping works, what it costs, and how to never fall behind again.",
+    date: "August 2026",
+    readingTime: "9 min read",
+    category: "Cleanup",
+  },
+  {
+    slug: "bookkeeper-vs-accountant-vs-cpa",
+    title:
+      "Bookkeeper vs Accountant vs CPA: Who Does Your Small Business Actually Need?",
+    description:
+      "What's the difference between a bookkeeper, an accountant, and a CPA? Here's what each one does and which your small business actually needs.",
+    date: "August 2026",
+    readingTime: "8 min read",
+    category: "Getting help",
+  },
+  {
+    slug: "job-costing-for-construction-companies",
+    title: "Job Costing for Construction Companies: A Plain-English Guide",
+    description:
+      "Learn how job costing works, why most contractors get it wrong, and how to set it up in QuickBooks so you know which jobs actually make money.",
+    date: "August 2026",
+    readingTime: "9 min read",
+    category: "Construction",
+  },
   {
     slug: "job-costing-for-contractors",
     title: "Job Costing for Contractors: How to Know Which Jobs Actually Make Money",
