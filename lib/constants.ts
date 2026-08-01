@@ -11,8 +11,7 @@ export const BUSINESS = {
   phone: "816-451-1555",
   // Tel-href form (no punctuation) for click-to-call links.
   phoneHref: "+18164511555",
-  // CONFIRM: no business email exists yet. Swap this placeholder everywhere it
-  // appears by editing this one constant.
+  // Confirmed business email (Aug 2026).
   email: "hello@starflowerbookkeeping.com",
   // Service-area business. The street address is private and never published.
   baseCity: "Liberty",
