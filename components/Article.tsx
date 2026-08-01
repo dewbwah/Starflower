@@ -24,7 +24,8 @@ export function Article({
           tone="blue"
           className="pointer-events-none absolute -left-24 -top-28 h-[26rem] w-[26rem] opacity-[0.05]"
         />
-        <Container className="relative py-16 sm:py-24">
+        {/* Extra top padding clears the floating glass nav overlapping this section. */}
+        <Container className="relative pb-16 pt-32 sm:pb-24 sm:pt-36">
           <div className="max-w-prose">
             <Rise>
               <div className="flex items-center gap-3 text-xs">

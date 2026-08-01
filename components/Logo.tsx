@@ -4,10 +4,13 @@ import { FlowerMark } from "./FlowerMark";
 /** Header/footer lockup: flower mark + "Starflower Bookkeeping" wordmark. */
 export function Logo({
   variant = "dark",
+  markTone,
   className = "",
 }: {
   /** "dark" = navy text on light bg. "light" = light text on navy bg. */
   variant?: "dark" | "light";
+  /** Override the flower mark tone (e.g. "coral" in the glass nav bar). */
+  markTone?: "blue" | "light" | "coral";
   className?: string;
 }) {
   const wordColor = variant === "light" ? "text-white" : "text-navy";
@@ -20,7 +23,7 @@ export function Logo({
       aria-label="Starflower Bookkeeping, home"
     >
       <FlowerMark
-        tone={variant === "light" ? "light" : "blue"}
+        tone={markTone ?? (variant === "light" ? "light" : "blue")}
         className="h-9 w-9 shrink-0 transition-transform duration-500 ease-out group-hover:rotate-[30deg] motion-reduce:transition-none motion-reduce:group-hover:rotate-0"
       />
       <span className="flex flex-col leading-none">

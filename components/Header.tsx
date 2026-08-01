@@ -45,11 +45,14 @@ export function Header() {
   return (
     // Floating glass bar: translucent navy over a blur, inset from the page top,
     // so content slides underneath it as you scroll.
-    <header className="pointer-events-none sticky top-0 z-50">
+    // Negative bottom margin equal to the bar's height lets the page's first
+    // section slide up behind the glass, so hero backgrounds (and their flower
+    // motifs) run all the way to the top of the viewport.
+    <header className="pointer-events-none sticky top-0 z-50 -mb-[4.25rem]">
       <Container className="pointer-events-auto">
         <div className="mt-3 rounded-2xl border border-white/15 bg-navy/80 shadow-lift backdrop-blur-md supports-[backdrop-filter]:bg-navy/70">
           <div className="flex h-14 items-center justify-between gap-4 px-4 sm:px-5">
-            <Logo variant="light" />
+            <Logo variant="light" markTone="coral" />
 
         <nav
           ref={navRef}
