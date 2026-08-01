@@ -14,7 +14,7 @@ import { PeopleIcon } from "@/components/icons";
 export const metadata: Metadata = {
   title: "About Angie",
   description:
-    "Meet Angie, founder of Starflower Bookkeeping. CFO of a multi-million dollar construction company bringing real financial oversight to small businesses nationwide.",
+    "Meet Angie, founder of Starflower Bookkeeping. CFO of a 7-figure construction company bringing real financial oversight to small businesses nationwide.",
   alternates: { canonical: "/about" },
   // Trust page, not an SEO target.
   robots: { index: true, follow: true },
@@ -33,8 +33,8 @@ export default function AboutPage() {
         }
         intro={
           <>
-            Hi, I&apos;m {BUSINESS.founderName}. I run the finances for a multi-million
-            dollar foundation repair company, and I started Starflower to bring that
+            Hi, I&apos;m {BUSINESS.founderName}. I run the finances for a 7-figure
+            construction company, and I started Starflower to bring that
             level of oversight to contractors and small businesses that have never had
             it.
           </>
@@ -79,7 +79,7 @@ export default function AboutPage() {
               <Eyebrow className="mb-3">My story</Eyebrow>
               <div className="space-y-5 text-lg leading-relaxed text-ink/80">
                 <p>
-                  For years I&apos;ve sat in the CFO seat of a multi-million dollar
+                  For years I&apos;ve sat in the CFO seat of a 7-figure
                   construction company. That means I&apos;ve lived inside the numbers
                   that keep a real, growing business alive: cash flow, job costing,
                   payroll, taxes, and the hundred decisions that ride on knowing where
@@ -102,7 +102,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   So I started Starflower Bookkeeping. Same financial oversight I bring
-                  to a multi-million dollar company, sized and priced for yours. I work
+                  to a 7-figure construction company, sized and priced for yours. I work
                   fully remote from {BUSINESS.baseCity}, {BUSINESS.baseState}, in the
                   Kansas City metro, with clients all over the country.
                 </p>
