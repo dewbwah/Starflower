@@ -7,6 +7,7 @@ import { CTABand } from "@/components/CTABand";
 import { CredentialsStrip } from "@/components/CredentialsStrip";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/blocks";
+import { CheckIcon, PeopleIcon } from "@/components/icons";
 import { CTA, SERVICES } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -82,21 +83,61 @@ export default function ServicesPage() {
 
       <Section tone="petal">
         <Container>
-          <div className="mx-auto max-w-prose text-center">
-            <SectionHeading
-              center
-              eyebrow="Also on the table"
-              title="The things that don't fit neatly in a list"
-              intro={
-                <>
-                  Sales tax filings, HR questions, vendor problems, help thinking
-                  through a hire, or a second opinion before you sign something. A lot
-                  of what I do for clients is simply being the person who knows their
-                  numbers and picks up the phone. If you&apos;re wondering whether
-                  something falls under what I do, just ask.
-                </>
-              }
-            />
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            {/* Card: the "office manager in a box" list */}
+            <Reveal>
+              <div className="leaf relative overflow-hidden bg-navy p-9 text-white sm:p-11">
+                <div className="flex items-center gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-petal-100">
+                    <PeopleIcon />
+                  </span>
+                  <h3 className="font-display text-2xl font-semibold">
+                    Your office manager in a box
+                  </h3>
+                </div>
+                <ul className="mt-8 space-y-3.5">
+                  {[
+                    "Sales tax filings",
+                    "HR questions",
+                    "Vendor problems and questions",
+                    "Help thinking through a hire",
+                    "A second opinion before you sign something",
+                    "Getting your CPA everything they need",
+                    "Talking decisions through with someone who knows your numbers",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-petal-100">
+                      <span className="mt-1 shrink-0 text-coral-400">
+                        <CheckIcon className="h-4 w-4" />
+                      </span>
+                      <span className="leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            {/* Copy */}
+            <div>
+              <SectionHeading
+                eyebrow="Also on the table"
+                title="The things that don't fit neatly in a list"
+                intro={
+                  <>
+                    My clients call me their office manager in a box. A lot of what I
+                    do is simply being the person who knows their numbers and picks up
+                    the phone. If you&apos;re wondering whether something falls under
+                    what I do, just ask.
+                  </>
+                }
+              />
+              <Reveal delay={100}>
+                <div className="mt-8">
+                  <CTAButton href="/contact" variant="ghost">
+                    Ask if it&apos;s covered
+                  </CTAButton>
+                </div>
+              </Reveal>
+            </div>
           </div>
         </Container>
       </Section>
