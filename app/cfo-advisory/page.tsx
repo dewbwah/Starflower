@@ -141,7 +141,7 @@ export default function CfoAdvisoryPage() {
             title="I'm not borrowing this experience from a textbook"
           >
             <p>
-              I sit in the CFO seat of a multi-million dollar construction company. Cash
+              I sit in the CFO seat of a 7-figure construction company. Cash
               flow forecasting, job costing, and lender conversations aren&apos;t
               services I studied, they&apos;re what my week looks like. When we go
               through your numbers, you&apos;re getting the same thinking I apply to a
