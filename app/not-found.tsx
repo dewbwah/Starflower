@@ -11,7 +11,7 @@ export default function NotFound() {
         tone="blue"
         className="pointer-events-none absolute -right-28 -top-28 h-[30rem] w-[30rem] opacity-[0.05]"
       />
-      <Container className="relative flex min-h-[70vh] flex-col items-center justify-center py-24 text-center">
+      <Container className="relative flex min-h-[70vh] flex-col items-center justify-center pb-24 pt-36 text-center">
         <FlowerMark tone="coral" className="h-14 w-14" />
         <p className="mt-8 text-sm font-semibold uppercase tracking-[0.2em] text-coral-600">
           404

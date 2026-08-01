@@ -28,8 +28,8 @@ export const metadata: Metadata = {
 const proofPoints = [
   {
     icon: ChartIcon,
-    title: "CFO of a multi-million dollar company",
-    body: "I run the finances for a multi-million dollar construction company. That same level of financial oversight is what I bring to your books.",
+    title: "CFO of a 7-figure company",
+    body: "I run the finances for a 7-figure construction company. That same level of financial oversight is what I bring to your books.",
   },
   {
     icon: HardHatIcon,
@@ -70,7 +70,8 @@ export default function HomePage() {
           tone="blue"
           className="pointer-events-none absolute -right-40 -top-40 h-[42rem] w-[42rem] opacity-[0.05]"
         />
-        <Container className="relative grid items-center gap-14 py-16 sm:py-24 lg:grid-cols-[1.05fr_0.95fr]">
+        {/* Extra top padding clears the floating glass nav overlapping this section. */}
+        <Container className="relative grid items-center gap-14 pb-16 pt-32 sm:pb-24 sm:pt-36 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <Rise>
               <Eyebrow className="mb-5">Bookkeeping with a CFO behind it</Eyebrow>
@@ -84,7 +85,7 @@ export default function HomePage() {
             <Rise delay={120}>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink/80">
                 I&apos;m not a bookkeeper who took a QuickBooks course. I&apos;m the
-                CFO of a multi-million dollar construction company, and I bring that
+                CFO of a 7-figure construction company, and I bring that
                 same financial oversight to your business. I don&apos;t just keep your
                 books clean, I tell you what your numbers are saying.
               </p>
@@ -146,7 +147,7 @@ export default function HomePage() {
               </div>
               <FlowerMark
                 tone="coral"
-                className="absolute -bottom-6 -left-6 h-16 w-16 rotate-12 drop-shadow-md"
+                className="absolute -bottom-6 -right-6 h-16 w-16 rotate-12 drop-shadow-md"
               />
             </div>
           </Reveal>
